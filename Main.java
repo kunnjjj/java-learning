@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -69,7 +70,35 @@ public class Main {
         System.out.println("Size of the list: " + size);
 
         // Clear the list
-        operationsList.clear();
-        System.out.println("After clearing the list: " + operationsList);
+        // operationsList.clear();
+        // System.out.println("After clearing the list: " + operationsList);
+
+        printUsingIterator(operationsList);
+
+        printForEach(standardList);
+    }
+
+    private static void printUsingIterator(List<Integer> list)
+    {
+        Iterator<Integer> iterator=list.iterator();
+        System.out.println("using iterator");
+
+        while(iterator.hasNext())
+        {
+            System.out.println(iterator.next());
+        }
+        System.out.println("exiting");
+    }
+
+
+    private static void printForEach(List<Integer> list)
+    {
+        System.out.println("using for Each");
+
+        for(int element:list)
+        {
+            System.out.println(element);
+        }
+        System.out.println("exiting");
     }
 }
