@@ -2,9 +2,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.List;
+import java.util.PriorityQueue;
 
 public class Main {
     public static void main(String[] args) {
@@ -76,29 +77,48 @@ public class Main {
         printUsingIterator(operationsList);
 
         printForEach(standardList);
+
+        learnPriorityQueue();
+
     }
 
-    private static void printUsingIterator(List<Integer> list)
-    {
-        Iterator<Integer> iterator=list.iterator();
+    private static void printUsingIterator(List<Integer> list) {
+        Iterator<Integer> iterator = list.iterator();
         System.out.println("using iterator");
 
-        while(iterator.hasNext())
-        {
+        while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
         System.out.println("exiting");
     }
 
-
-    private static void printForEach(List<Integer> list)
-    {
+    private static void printForEach(List<Integer> list) {
         System.out.println("using for Each");
 
-        for(int element:list)
-        {
+        for (int element : list) {
             System.out.println(element);
         }
         System.out.println("exiting");
+    }
+
+    private static void learnPriorityQueue() {
+        System.out.println("\n\n PriorityQueue");
+
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>((Integer a, Integer b) -> {
+            System.out.println("Comparing " + a + " and " + b);
+            int result = a - b; // Min-heap logic
+            return result;
+        });
+
+        priorityQueue.add(4);
+        priorityQueue.add(10);
+        priorityQueue.add(-2);
+        priorityQueue.add(-10);
+        priorityQueue.add(23);
+
+        for (int x : priorityQueue) {
+            System.out.println(x);
+        }
+
     }
 }
